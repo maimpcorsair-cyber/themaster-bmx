@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 
 const content = {
   th: {
@@ -85,8 +84,7 @@ const content = {
 };
 
 export default function HomePage() {
-  const [lang, setLang] = useState<'th' | 'en'>('th');
-  const t = content[lang];
+  const t = content.th;
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -102,13 +100,6 @@ export default function HomePage() {
             <Link href="/shop" className="text-sm font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.nav.shop}</Link>
             <Link href="/programs#contact" className="bg-white text-black px-5 py-2 text-sm font-bold hover:bg-red-600 hover:text-white transition-colors uppercase tracking-wide">{t.nav.contact}</Link>
           </nav>
-          {/* Language Toggle */}
-          <button 
-            onClick={() => setLang(lang === 'th' ? 'en' : 'th')}
-            className="border border-gray-600 px-3 py-1 text-xs font-bold uppercase tracking-wider hover:border-white transition-colors"
-          >
-            {lang === 'th' ? 'EN' : 'TH'}
-          </button>
         </div>
       </header>
 
@@ -144,6 +135,12 @@ export default function HomePage() {
           <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-xl mx-auto uppercase tracking-wide">
             {t.hero.subtitle}
           </p>
+          
+          <div className="text-lg md:text-xl text-gray-300 mb-10 max-w-xl mx-auto">
+            <p className="uppercase tracking-wide">We don&apos;t teach riding bikes.</p>
+            <p className="uppercase tracking-wide">We teach kids to become athletes.</p>
+            <p className="mt-4 text-red-500 font-bold uppercase tracking-wide">เราไม่ได้สอนขี่จักรยาน เราสอนเด็กให้เป็นนักกีฬา</p>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/programs" className="bg-white text-black font-bold py-4 px-10 hover:bg-red-600 hover:text-white transition-all text-sm uppercase tracking-widest">
