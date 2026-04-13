@@ -142,27 +142,39 @@ export default function ProgramsPage() {
           <h2 className="text-lg font-bold mb-6 tracking-tight border-b border-gray-800 pb-4">โค้ชผู้สอน</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {coaches.map((coach, i) => (
-              <div key={i} className="bg-black border border-gray-800 p-6 flex gap-6 hover:border-white transition-all">
-                <div className="w-32 h-32 flex-shrink-0">
-                  <Image 
-                    src={coach.image} 
-                    alt={coach.name} 
-                    width={128}
-                    height={128}
-                    className="w-full h-full object-cover"
-                  />
+              <div key={i} className="bg-black border border-gray-800 p-6 hover:border-white transition-all">
+                <div className="flex gap-6">
+                  <div className="w-32 h-32 flex-shrink-0">
+                    <Image 
+                      src={coach.image} 
+                      alt={coach.name} 
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">{coach.title}</p>
+                    <h3 className="text-xl font-bold mb-1">{coach.name}</h3>
+                    <p className="text-white text-sm mb-3">{coach.brand}</p>
+                    <ul className="space-y-1">
+                      {coach.achievements.map((a, j) => (
+                        <li key={j} className="text-gray-400 text-sm flex items-center gap-2">
+                          <span className="text-white">•</span> {a}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">{coach.title}</p>
-                  <h3 className="text-xl font-bold mb-1">{coach.name}</h3>
-                  <p className="text-white text-sm mb-3">{coach.brand}</p>
-                  <ul className="space-y-1">
-                    {coach.achievements.map((a, j) => (
-                      <li key={j} className="text-gray-400 text-sm flex items-center gap-2">
-                        <span className="text-white">•</span> {a}
-                      </li>
-                    ))}
-                  </ul>
+                {/* Video Profile Placeholder */}
+                <div className="mt-4 aspect-video bg-gray-900 rounded flex items-center justify-center border border-gray-800">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span className="text-2xl">▶️</span>
+                    </div>
+                    <p className="text-gray-500 text-sm">ดู Profile Video ของ {coach.name}</p>
+                    <p className="text-gray-600 text-xs">Coming Soon</p>
+                  </div>
                 </div>
               </div>
             ))}
