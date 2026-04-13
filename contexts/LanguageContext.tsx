@@ -70,7 +70,7 @@ const translations = {
       title: 'พร้อมเริ่มต้นแล้วหรือยัง?',
       subtitle: 'รับทดลองเรียนฟรี 1 ครั้ง',
       call: 'โทร 081-234-5678',
-      line: 'แอดไลน์ @972nkywq',
+      line: 'แอดไลน์ @rushfest',
     },
     footer: {
       rights: '© 2026 The Master BMX.',
@@ -78,7 +78,7 @@ const translations = {
     },
     social: {
       instagram: '@rushfestth',
-      line: '@972nkywq',
+      line: '@rushfest',
     },
     shop: {
       title: 'ร้านจักรยาน',
@@ -165,7 +165,7 @@ const translations = {
       title: 'Ready to Start?',
       subtitle: 'Free trial class 1 session',
       call: 'Call 081-234-5678',
-      line: 'Line @972nkywq',
+      line: 'Line @rushfest',
     },
     footer: {
       rights: '© 2026 The Master BMX.',
@@ -173,7 +173,7 @@ const translations = {
     },
     social: {
       instagram: '@rushfestth',
-      line: '@972nkywq',
+      line: '@rushfest',
     },
     shop: {
       title: 'Bike Shop',

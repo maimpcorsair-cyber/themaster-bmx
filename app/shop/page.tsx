@@ -366,7 +366,7 @@ export default function ShopPage() {
                   <span>฿{cartTotal.toLocaleString()}</span>
                 </div>
                 <a 
-                  href="https://line.me/R/ti/p/%40972nkywq" 
+                  href="https://line.me/R/ti/p/%40rushfest" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full bg-green-600 text-white font-bold py-4 hover:bg-green-700 transition-colors uppercase tracking-widest text-center"
