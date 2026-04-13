@@ -21,6 +21,11 @@ export default function RootLayout({
           {children}
           <footer className="py-8 px-6 bg-black border-t border-gray-800">
             <div className="max-w-7xl mx-auto text-center">
+              <div className="flex justify-center gap-6 mb-4">
+                <a href="https://www.instagram.com/rushfestth" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white text-sm uppercase tracking-wider">
+                  Instagram @rushfestth
+                </a>
+              </div>
               <p className="text-gray-500 text-sm uppercase tracking-wide">© 2026 The Master BMX.</p>
             </div>
           </footer>
