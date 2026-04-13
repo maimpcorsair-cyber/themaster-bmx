@@ -27,23 +27,38 @@ const safetyGear = [
   { id: 103, name: 'Pro-Tec Sport Helmet', brand: 'PRO-TEC', price: 2200, image: '/gear_helmet_sport.jpg', category: 'helmets', rating: 4.8, reviews: 24 },
   { id: 104, name: 'Triple 8 Certified Helmet', brand: 'TRIPLE 8', price: 3200, image: '/gear_helmet_t8.jpg', category: 'helmets', rating: 4.9, reviews: 15 },
   // Gloves
-  { id: 105, name: 'Pro-Tec反转Gloves', brand: 'PRO-TEC', price: 450, image: '/gear_gloves_protec.jpg', category: 'gloves', rating: 4.7, reviews: 45 },
-  { id: 106, name: 'Fuse Str手腕Glove', brand: 'FUSE', price: 550, image: '/gear_gloves_fuse.jpg', category: 'gloves', rating: 4.8, reviews: 28 },
+  { id: 105, name: 'Pro-Tec Gloves', brand: 'PRO-TEC', price: 450, image: '/gear_gloves_protec.jpg', category: 'gloves', rating: 4.7, reviews: 45 },
+  { id: 106, name: 'FUSE Wrist Glove', brand: 'FUSE', price: 550, image: '/gear_gloves_fuse.jpg', category: 'gloves', rating: 4.8, reviews: 28 },
   { id: 107, name: 'BDC Gloves', brand: 'BDC', price: 380, image: '/gear_gloves_bdc.jpg', category: 'gloves', rating: 4.6, reviews: 52 },
   // Knee Pads
-  { id: 108, name: 'Fuse Echo 100 Knee/Shin Pad', brand: 'FUSE', price: 1800, image: '/gear_knee_fuse_echo.jpg', category: 'knee-pads', rating: 5.0, reviews: 22, badge: 'BEST' },
-  { id: 109, name: 'Fuse Delta 125 Knee/Shin/Ankle', brand: 'FUSE', price: 2200, image: '/gear_knee_fuse_delta.jpg', category: 'knee-pads', rating: 4.9, reviews: 14 },
+  { id: 108, name: 'FUSE Echo 100 Knee/Shin Pad', brand: 'FUSE', price: 1800, image: '/gear_knee_fuse_echo.jpg', category: 'knee-pads', rating: 5.0, reviews: 22, badge: 'BEST' },
+  { id: 109, name: 'FUSE Delta 125 Knee/Shin/Ankle', brand: 'FUSE', price: 2200, image: '/gear_knee_fuse_delta.jpg', category: 'knee-pads', rating: 4.9, reviews: 14 },
   { id: 110, name: 'Shadow Super Slim V2 Knee Pads', brand: 'SHADOW', price: 1500, image: '/gear_knee_shadow.jpg', category: 'knee-pads', rating: 4.8, reviews: 19 },
   { id: 111, name: 'Stay Strong Combat Knee/Shin', brand: 'STAY STRONG', price: 1950, image: '/gear_knee_staystrong.jpg', category: 'knee-pads', rating: 4.9, reviews: 8 },
   // Elbow Pads
-  { id: 112, name: 'Pro-Tec反转Elbow Pad', brand: 'PRO-TEC', price: 800, image: '/gear_elbow_protec.jpg', category: 'elbow-pads', rating: 4.7, reviews: 33 },
-  { id: 113, name: 'Fuse Lomi Elbow Pads', brand: 'FUSE', price: 950, image: '/gear_elbow_fuse.jpg', category: 'elbow-pads', rating: 4.8, reviews: 21 },
+  { id: 112, name: 'Pro-Tec Elbow Pad', brand: 'PRO-TEC', price: 800, image: '/gear_elbow_protec.jpg', category: 'elbow-pads', rating: 4.7, reviews: 33 },
+  { id: 113, name: 'FUSE Lomi Elbow Pads', brand: 'FUSE', price: 950, image: '/gear_elbow_fuse.jpg', category: 'elbow-pads', rating: 4.8, reviews: 21 },
   // Shin Guards
   { id: 114, name: 'Stay Strong Shin Guards', brand: 'STAY STRONG', price: 1200, image: '/gear_shin_staystrong.jpg', category: 'shin-guards', rating: 4.9, reviews: 12 },
   // Body Armor
-  { id: 115, name: 'Pro-Tec反转Body Armor', brand: 'PRO-TEC', price: 3500, image: '/gear_body_protec.jpg', category: 'body-armor', rating: 5.0, reviews: 9 },
+  { id: 115, name: 'Pro-Tec Body Armor', brand: 'PRO-TEC', price: 3500, image: '/gear_body_protec.jpg', category: 'body-armor', rating: 5.0, reviews: 9 },
   // Neck Brace
-  { id: 116, name: 'Leatt反转Neck Brace', brand: 'LEATT', price: 5500, image: '/gear_neck_leatt.jpg', category: 'neck-brace', rating: 5.0, reviews: 6 },
+  { id: 116, name: 'Leatt Neck Brace', brand: 'LEATT', price: 5500, image: '/gear_neck_leatt.jpg', category: 'neck-brace', rating: 5.0, reviews: 6 },
+];
+
+// === PROMOTIONS ===
+const promotions = [
+  { id: 1, code: 'NEWRIDER', discount: 10, labelTh: 'ส่วนลด 10% สำหรับมือใหม่', labelEn: '10% off for new riders', minPurchase: 2000 },
+  { id: 2, code: 'SIBLING', discount: 15, labelTh: 'ส่วนลด 15% พี่น้อง', labelEn: '15% off for siblings', minPurchase: 3000 },
+  { id: 3, code: 'RUSTFEST', discount: 20, labelTh: 'ลด 20% สำหรับผู้เข้าแข่งขัน RUSTFEST', labelEn: '20% off for RUSTFEST participants', minPurchase: 0 },
+];
+
+// === REVIEWS ===
+const reviews = [
+  { id: 1, name: 'คุณแม่น้องไนซ์', location: 'กรุงเทพฯ', textTh: 'ลูกชอบมากค่ะ โค้ชใจดีสอนเข้าใจง่าย เด็กๆ มีความสุขมาก', textEn: 'My son loves it! Coach is kind and patient. Kids are very happy.', rating: 5, program: 'Little Rider', avatar: 'N' },
+  { id: 2, name: 'คุณพ่อน้องมาร์ค', location: 'พัทยา', textTh: 'ลูกเริ่มแข่งได้แล้ว ภูมิใจมากที่ได้ส่งมาเรียนที่นี่', textEn: "My child can compete now. So proud to have enrolled here.", rating: 5, program: 'Competitor', avatar: 'M' },
+  { id: 3, name: 'คุณแม่น้องเจน', location: 'รัชดา', textTh: 'สนามฝึกสอนดีมาก ปลอดภัย พี่เบียร์สอนเก่งมาก', textEn: 'Great training ground. Safe environment. Coach Beer teaches very well.', rating: 5, program: 'Junior Rider', avatar: 'J' },
+  { id: 4, name: 'นายธนกฤต', location: 'บางแค', textTh: 'อายุ 15 ปีเริ่มใหม่ สอนจากศูนย์จนแข่งได้ ประทับใจมาก', textEn: 'Started at 15, from zero to competing. Very impressed.', rating: 5, program: 'Competitor', avatar: 'T' },
 ];
 
 const categories = [
@@ -73,6 +88,8 @@ export default function ShopPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [showCart, setShowCart] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
+  const [promoCode, setPromoCode] = useState('');
+  const [discount, setDiscount] = useState(0);
 
   const addToCart = (id: number) => {
     setCart(prev => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
@@ -90,11 +107,23 @@ export default function ShopPage() {
     }
   };
 
-  const cartTotal = Object.entries(cart).reduce((sum, [id, qty]) => {
+  const applyPromo = () => {
+    const promo = promotions.find(p => p.code.toUpperCase() === promoCode.toUpperCase());
+    if (promo) {
+      setDiscount(promo.discount);
+    } else {
+      setDiscount(0);
+      alert(lang === 'th' ? 'รหัสส่วนลดไม่ถูกต้อง' : 'Invalid promo code');
+    }
+  };
+
+  const cartSubtotal = Object.entries(cart).reduce((sum, [id, qty]) => {
     const product = [...completeBikes, ...safetyGear].find(p => p.id === Number(id));
     return sum + (product ? product.price * qty : 0);
   }, 0);
-
+  
+  const discountAmount = Math.floor(cartSubtotal * discount / 100);
+  const cartTotal = cartSubtotal - discountAmount;
   const cartCount = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
 
   const filteredGear = selectedCategory === 'all' 
@@ -113,13 +142,25 @@ export default function ShopPage() {
               <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-2">{t.shop.title}</h1>
               <p className="text-gray-500 text-lg">{t.shop.subtitle}</p>
             </div>
-            {/* Cart Button */}
             <button 
               onClick={() => setShowCart(true)}
               className="relative bg-white text-black font-bold py-3 px-6 hover:bg-gray-200 transition-colors"
             >
               CART ({cartCount})
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Promotions Banner */}
+      <section className="py-6 px-6 bg-red-600">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+            {promotions.map((promo) => (
+              <span key={promo.id} className="font-bold">
+                {lang === 'th' ? promo.labelTh : promo.labelEn}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -172,7 +213,7 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* Safety Gear - Filter by Category */}
+      {/* Safety Gear */}
       <section className="py-12 px-6 bg-gray-950">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-8 border-b border-gray-800 pb-4">
@@ -200,7 +241,6 @@ export default function ShopPage() {
             {filteredGear.map((gear) => (
               <div key={gear.id} className="bg-black border border-gray-800 hover:border-white transition-all">
                 <div className="relative aspect-square bg-gray-900 p-4">
-                  {/* Placeholder */}
                   <div className="w-full h-full flex items-center justify-center text-gray-700">
                     <span className="text-4xl font-black uppercase">{gear.brand.charAt(0)}</span>
                   </div>
@@ -234,8 +274,35 @@ export default function ShopPage() {
         </div>
       </section>
 
+      {/* Reviews Section */}
+      <section className="py-16 px-6 bg-black border-t border-gray-800">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-black uppercase tracking-tight mb-8">{lang === 'th' ? 'รีวิวจากลูกค้า' : 'Customer Reviews'}</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {reviews.map((review) => (
+              <div key={review.id} className="bg-gray-950 border border-gray-800 p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-xl font-bold">
+                    {review.avatar}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-sm">{review.name}</h3>
+                    <p className="text-gray-500 text-xs">{review.location}</p>
+                  </div>
+                </div>
+                <StarRating rating={review.rating} />
+                <p className="text-gray-400 text-sm mt-3 mb-2">
+                  {lang === 'th' ? review.textTh : review.textEn}
+                </p>
+                <span className="text-xs text-red-500 font-bold uppercase">{review.program}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Payment */}
-      <section className="py-12 px-6 bg-black border-t border-gray-800">
+      <section className="py-12 px-6 bg-gray-950 border-t border-gray-800">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-lg font-bold mb-6 uppercase tracking-tight">{t.shop.payment}</h2>
           <div className="flex flex-wrap gap-4">
@@ -291,7 +358,39 @@ export default function ShopPage() {
                     })}
                   </div>
                   
+                  {/* Promo Code */}
+                  <div className="border-t border-gray-800 pt-4 mb-4">
+                    <div className="flex gap-2">
+                      <input 
+                        type="text" 
+                        placeholder={lang === 'th' ? 'ใส่รหัสส่วนลด' : 'Enter promo code'}
+                        value={promoCode}
+                        onChange={(e) => setPromoCode(e.target.value)}
+                        className="flex-1 bg-gray-900 border border-gray-800 p-2 text-white text-sm"
+                      />
+                      <button 
+                        onClick={applyPromo}
+                        className="bg-red-600 text-white px-4 py-2 text-sm font-bold hover:bg-red-700 transition-colors"
+                      >
+                        {lang === 'th' ? 'ใช้' : 'Apply'}
+                      </button>
+                    </div>
+                    {discount > 0 && (
+                      <p className="text-green-500 text-sm mt-2">{lang === 'th' ? `ส่วนลด ${discount}%` : `${discount}% off`}</p>
+                    )}
+                  </div>
+                  
                   <div className="border-t border-gray-800 pt-4 mb-6">
+                    <div className="flex justify-between text-sm text-gray-500 mb-2">
+                      <span>Subtotal</span>
+                      <span>฿{cartSubtotal.toLocaleString()}</span>
+                    </div>
+                    {discount > 0 && (
+                      <div className="flex justify-between text-sm text-green-500 mb-2">
+                        <span>Discount ({discount}%)</span>
+                        <span>-฿{discountAmount.toLocaleString()}</span>
+                      </div>
+                    )}
                     <div className="flex justify-between text-lg font-bold">
                       <span>TOTAL</span>
                       <span>฿{cartTotal.toLocaleString()}</span>
@@ -322,24 +421,24 @@ export default function ShopPage() {
             
             <form className="space-y-4">
               <div>
-                <label className="block text-sm font-bold uppercase mb-2">Name / ชื่อ</label>
-                <input type="text" className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none" placeholder="กรอกชื่อของคุณ" />
+                <label className="block text-sm font-bold uppercase mb-2">{lang === 'th' ? 'ชื่อ' : 'Name'}</label>
+                <input type="text" className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none" placeholder={lang === 'th' ? 'กรอกชื่อของคุณ' : 'Enter your name'} />
               </div>
               <div>
-                <label className="block text-sm font-bold uppercase mb-2">Phone / เบอร์โทร</label>
+                <label className="block text-sm font-bold uppercase mb-2">{lang === 'th' ? 'เบอร์โทร' : 'Phone'}</label>
                 <input type="tel" className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none" placeholder="081-234-5678" />
               </div>
               <div>
-                <label className="block text-sm font-bold uppercase mb-2">LINE ID (ถ้ามี)</label>
-                <input type="text" className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none" placeholder="เช่น @themasterbmx" />
+                <label className="block text-sm font-bold uppercase mb-2">LINE ID</label>
+                <input type="text" className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none" placeholder="@yourlineid" />
               </div>
               <div>
-                <label className="block text-sm font-bold uppercase mb-2">Address / ที่อยู่</label>
-                <textarea className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none h-24" placeholder="ที่อยู่จัดส่ง" />
+                <label className="block text-sm font-bold uppercase mb-2">{lang === 'th' ? 'ที่อยู่' : 'Address'}</label>
+                <textarea className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none h-24" placeholder={lang === 'th' ? 'ที่อยู่จัดส่ง' : 'Shipping address'} />
               </div>
               
               <div className="border-t border-gray-800 pt-4">
-                <p className="text-sm font-bold uppercase mb-3">Payment Method / วิธีชำระเงิน</p>
+                <p className="text-sm font-bold uppercase mb-3">{lang === 'th' ? 'วิธีชำระเงิน' : 'Payment Method'}</p>
                 <div className="space-y-2">
                   <label className="flex items-center gap-3 bg-gray-900 p-3 border border-gray-800 cursor-pointer hover:border-white transition-colors">
                     <input type="radio" name="payment" value="linepay" className="w-4 h-4" defaultChecked />
@@ -351,16 +450,22 @@ export default function ShopPage() {
                   </label>
                   <label className="flex items-center gap-3 bg-gray-900 p-3 border border-gray-800 cursor-pointer hover:border-white transition-colors">
                     <input type="radio" name="payment" value="transfer" className="w-4 h-4" />
-                    <span className="font-bold">โอนเงิน / Bank Transfer</span>
+                    <span className="font-bold">{lang === 'th' ? 'โอนเงิน' : 'Bank Transfer'}</span>
                   </label>
                   <label className="flex items-center gap-3 bg-gray-900 p-3 border border-gray-800 cursor-pointer hover:border-white transition-colors">
                     <input type="radio" name="payment" value="cod" className="w-4 h-4" />
-                    <span className="font-bold">เก็บเงินปลายทาง / COD</span>
+                    <span className="font-bold">{lang === 'th' ? 'เก็บเงินปลายทาง' : 'COD'}</span>
                   </label>
                 </div>
               </div>
               
               <div className="border-t border-gray-800 pt-4">
+                {discount > 0 && (
+                  <div className="flex justify-between text-sm text-green-500 mb-2">
+                    <span>{lang === 'th' ? 'ส่วนลด' : 'Discount'} ({discount}%)</span>
+                    <span>-฿{discountAmount.toLocaleString()}</span>
+                  </div>
+                )}
                 <div className="flex justify-between text-lg font-bold mb-4">
                   <span>TOTAL</span>
                   <span>฿{cartTotal.toLocaleString()}</span>
@@ -373,7 +478,7 @@ export default function ShopPage() {
                 >
                   ADD LINE TO CONFIRM ORDER
                 </a>
-                <p className="text-center text-gray-500 text-xs mt-2">กดปุ่มเพื่อติดต่อ LINE ร้านสั่งซื้อ</p>
+                <p className="text-center text-gray-500 text-xs mt-2">{lang === 'th' ? 'กดปุ่มเพื่อติดต่อ LINE ร้านสั่งซื้อ' : 'Click to contact LINE shop to confirm order'}</p>
               </div>
             </form>
           </div>

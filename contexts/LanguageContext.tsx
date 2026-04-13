@@ -15,8 +15,10 @@ const translations = {
     nav: {
       home: 'หน้าแรก',
       programs: 'คอร์สเรียน',
+      schedule: 'ตารางเรียน',
       rustfest: 'RUSTFEST',
       shop: 'ร้านค้า',
+      about: 'เกี่ยวกับ',
       contact: 'ติดต่อ',
     },
     hero: {
@@ -110,8 +112,10 @@ const translations = {
     nav: {
       home: 'Home',
       programs: 'Programs',
+      schedule: 'Schedule',
       rustfest: 'RUSTFEST',
       shop: 'Shop',
+      about: 'About',
       contact: 'Contact',
     },
     hero: {

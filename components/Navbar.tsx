@@ -12,12 +12,14 @@ export default function Navbar() {
         <Link href="/" className="text-xl font-black tracking-tighter uppercase">
           THE MASTER <span className="text-red-600">BMX</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-8">
-          <Link href="/" className="text-sm font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.nav.home}</Link>
-          <Link href="/programs" className="text-sm font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.nav.programs}</Link>
-          <Link href="/rustfest" className="text-sm font-medium hover:text-red-500 transition-colors uppercase tracking-wide">RUSTFEST</Link>
-          <Link href="/shop" className="text-sm font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.nav.shop}</Link>
-          <Link href="/programs#contact" className="bg-white text-black px-5 py-2 text-sm font-bold hover:bg-red-600 hover:text-white transition-colors uppercase tracking-wide">
+        <nav className="hidden md:flex items-center gap-6">
+          <Link href="/" className="text-xs font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.nav.home}</Link>
+          <Link href="/programs" className="text-xs font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.nav.programs}</Link>
+          <Link href="/schedule" className="text-xs font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.nav.schedule}</Link>
+          <Link href="/rustfest" className="text-xs font-medium hover:text-red-500 transition-colors uppercase tracking-wide">RUSTFEST</Link>
+          <Link href="/shop" className="text-xs font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.nav.shop}</Link>
+          <Link href="/about" className="text-xs font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.nav.about}</Link>
+          <Link href="/programs#contact" className="bg-white text-black px-4 py-2 text-xs font-bold hover:bg-red-600 hover:text-white transition-colors uppercase tracking-wide">
             {t.nav.contact}
           </Link>
         </nav>
