@@ -14,6 +14,7 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-6">
           <Link href="/" className="text-gray-400 hover:text-white transition-colors">หน้าแรก</Link>
           <Link href="/programs" className="text-gray-400 hover:text-white transition-colors">คอร์สเรียน</Link>
+          <Link href="/rustfest" className="text-gray-400 hover:text-white transition-colors">RUSTFEST</Link>
           <Link href="/shop" className="text-gray-400 hover:text-white transition-colors">ร้านค้า</Link>
           <Link href="/programs#contact" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-bold py-2 px-4 rounded-full transition-all">ติดต่อ</Link>
         </nav>
