@@ -166,15 +166,14 @@ export default function ProgramsPage() {
                     </ul>
                   </div>
                 </div>
-                {/* Video Profile Placeholder */}
-                <div className="mt-4 aspect-video bg-gray-900 rounded flex items-center justify-center border border-gray-800">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-2xl">▶️</span>
-                    </div>
-                    <p className="text-gray-500 text-sm">ดู Profile Video ของ {coach.name}</p>
-                    <p className="text-gray-600 text-xs">Coming Soon</p>
-                  </div>
+                {/* Video Profile */}
+                <div className="mt-4 aspect-video bg-gray-900 rounded overflow-hidden border border-gray-800">
+                  <iframe 
+                    src={`https://www.youtube.com/embed/${i === 0 ? 'W6Kn4-b2XIM' : '9B0RpT90SnQ'}`}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
                 </div>
               </div>
             ))}
