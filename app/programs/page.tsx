@@ -149,7 +149,7 @@ export default function ProgramsPage() {
                     alt={coach.name} 
                     width={128}
                     height={128}
-                    className="w-full h-full object-cover grayscale"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
