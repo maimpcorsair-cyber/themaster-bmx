@@ -24,7 +24,7 @@ const coaches = [
 ];
 
 export default function ProgramsPage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <div className="min-h-screen bg-black text-white pt-20">
@@ -45,12 +45,12 @@ export default function ProgramsPage() {
               <h3 className="text-xl font-bold mt-2 mb-2">{t.programs.little.name}</h3>
               <p className="text-gray-500 text-sm mb-4">{t.programs.little.desc}</p>
               <ul className="space-y-2 mb-6">
-                <li className="text-gray-400 text-sm">✓ สอนทรงตัวบนจักรยาน</li>
-                <li className="text-gray-400 text-sm">✓ ฝึกเบรกอย่างปลอดภัย</li>
-                <li className="text-gray-400 text-sm">✓ เกมส์และกิจกรรมสนุกๆ</li>
-                <li className="text-gray-400 text-sm">✓ ฝึกในสนามที่ปลอดภัย</li>
+                <li className="text-gray-400 text-sm">✓ {t.programs.little.bullet1}</li>
+                <li className="text-gray-400 text-sm">✓ {t.programs.little.bullet2}</li>
+                <li className="text-gray-400 text-sm">✓ {t.programs.little.bullet3}</li>
+                <li className="text-gray-400 text-sm">✓ {t.programs.little.bullet4}</li>
               </ul>
-              <p className="text-2xl font-bold">฿1,500<span className="text-sm font-normal text-gray-500">/เดือน</span></p>
+              <p className="text-2xl font-bold">฿1,500<span className="text-sm font-normal text-gray-500">{t.programs.perMonth}</span></p>
             </div>
             
             <div className="bg-black border border-gray-800 hover:border-white transition-all p-8">
@@ -58,12 +58,12 @@ export default function ProgramsPage() {
               <h3 className="text-xl font-bold mt-2 mb-2">{t.programs.junior.name}</h3>
               <p className="text-gray-500 text-sm mb-4">{t.programs.junior.desc}</p>
               <ul className="space-y-2 mb-6">
-                <li className="text-gray-400 text-sm">✓ ฝึก Bunny Hop</li>
-                <li className="text-gray-400 text-sm">✓ เทคนิคการบังคับ</li>
-                <li className="text-gray-400 text-sm">✓ ฝึกใน Pump Track</li>
-                <li className="text-gray-400 text-sm">✓ เตรียมแข่งขัน</li>
+                <li className="text-gray-400 text-sm">✓ {t.programs.junior.bullet1}</li>
+                <li className="text-gray-400 text-sm">✓ {t.programs.junior.bullet2}</li>
+                <li className="text-gray-400 text-sm">✓ {t.programs.junior.bullet3}</li>
+                <li className="text-gray-400 text-sm">✓ {t.programs.junior.bullet4}</li>
               </ul>
-              <p className="text-2xl font-bold">฿2,000<span className="text-sm font-normal text-gray-500">/เดือน</span></p>
+              <p className="text-2xl font-bold">฿2,000<span className="text-sm font-normal text-gray-500">{t.programs.perMonth}</span></p>
             </div>
             
             <div className="bg-red-600/5 border border-red-600 p-8">
@@ -71,12 +71,12 @@ export default function ProgramsPage() {
               <h3 className="text-xl font-bold mt-2 mb-2 text-red-500">{t.programs.competitor.name}</h3>
               <p className="text-gray-500 text-sm mb-4">{t.programs.competitor.desc}</p>
               <ul className="space-y-2 mb-6">
-                <li className="text-gray-400 text-sm">✓ ฝึกแข่งขันทุกสัปดาห์</li>
-                <li className="text-gray-400 text-sm">✓ เทคนิคขั้นสูง</li>
-                <li className="text-gray-400 text-sm">✓ ร่วมทีม Academy</li>
-                <li className="text-gray-400 text-sm">✓ เข้าร่วม RUSTFEST</li>
+                <li className="text-gray-400 text-sm">✓ {t.programs.competitor.bullet1}</li>
+                <li className="text-gray-400 text-sm">✓ {t.programs.competitor.bullet2}</li>
+                <li className="text-gray-400 text-sm">✓ {t.programs.competitor.bullet3}</li>
+                <li className="text-gray-400 text-sm">✓ {t.programs.competitor.bullet4}</li>
               </ul>
-              <p className="text-2xl font-bold text-red-500">฿2,500<span className="text-sm font-normal text-gray-500">/เดือน</span></p>
+              <p className="text-2xl font-bold text-red-500">฿2,500<span className="text-sm font-normal text-gray-500">{t.programs.perMonth}</span></p>
             </div>
           </div>
         </div>
