@@ -174,7 +174,7 @@ export default function ShopPage() {
           
           <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
             {completeBikes.map((product) => (
-              <div key={product.id} className="bg-black border border-gray-800 hover:border-white transition-all">
+              <Link key={product.id} href={`/shop/${product.id}`} className="bg-black border border-gray-800 hover:border-white transition-all">
                 <div className="relative aspect-square bg-gray-950 p-4">
                   <Image 
                     src={product.image} 
@@ -200,14 +200,14 @@ export default function ShopPage() {
                   <div className="flex items-center justify-between">
                     <p className="font-bold text-lg">฿{product.price.toLocaleString()}</p>
                     <button 
-                      onClick={() => addToCart(product.id)}
+                      onClick={(e) => { e.preventDefault(); addToCart(product.id); }}
                       className="bg-white text-black text-xs font-bold py-2 px-4 hover:bg-gray-200 transition-colors"
                     >
                       {t.shop.addCart}
                     </button>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function ShopPage() {
           
           <div className="grid md:grid-cols-4 lg:grid-cols-5 gap-6">
             {filteredGear.map((gear) => (
-              <div key={gear.id} className="bg-black border border-gray-800 hover:border-white transition-all">
+              <Link key={gear.id} href={`/shop/${gear.id}`} className="bg-black border border-gray-800 hover:border-white transition-all">
                 <div className="relative aspect-square bg-gray-900 p-4">
                   <div className="w-full h-full flex items-center justify-center text-gray-700">
                     <span className="text-4xl font-black uppercase">{gear.brand.charAt(0)}</span>
@@ -261,14 +261,14 @@ export default function ShopPage() {
                   <div className="flex items-center justify-between">
                     <p className="font-bold text-lg">฿{gear.price.toLocaleString()}</p>
                     <button 
-                      onClick={() => addToCart(gear.id)}
+                      onClick={(e) => { e.preventDefault(); addToCart(gear.id); }}
                       className="bg-white text-black text-xs font-bold py-2 px-4 hover:bg-gray-200 transition-colors"
                     >
                       {t.shop.addCart}
                     </button>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
