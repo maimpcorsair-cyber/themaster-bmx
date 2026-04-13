@@ -37,8 +37,8 @@ export default function HomePage() {
             <Link href="/programs" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-bold py-4 px-8 rounded-full transition-all text-lg">
               🚀 ลงทะเบียนเรียน
             </Link>
-            <Link href="/shop" className="border-2 border-white/30 hover:border-primary hover:bg-white/5 text-white font-bold py-4 px-8 rounded-full transition-all text-lg">
-              🛒 ร้านจักรยาน
+            <Link href="/rustfest" className="border-2 border-primary hover:bg-primary/10 text-primary font-bold py-4 px-8 rounded-full transition-all text-lg">
+              🔥 RUSTFEST
             </Link>
           </div>
         </div>
