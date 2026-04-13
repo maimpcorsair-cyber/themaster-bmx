@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-const products = [
+const completeBikes = [
   {
     id: 1,
     name: 'Kink Carve 16"',
@@ -45,7 +45,47 @@ const products = [
   },
   {
     id: 5,
-    name: 'Kink Williams 20.75"',
+    name: 'Kink Setup 20.5"',
+    brand: 'KINK',
+    price: 14500,
+    image: 'https://bmxdirect.asia/wp-content/uploads/2026/04/bikes_27_setup_k430_iridescentblack1-550x384.jpg',
+    category: 'complete',
+    size: '20.5"',
+    stock: true,
+  },
+  {
+    id: 6,
+    name: 'Kink Setup XL 21"',
+    brand: 'KINK',
+    price: 16500,
+    image: 'https://bmxdirect.asia/wp-content/uploads/2026/04/bikes_27_setupxl_k435_iridescentblack1-550x384.jpg',
+    category: 'complete',
+    size: '21"',
+    stock: true,
+  },
+  {
+    id: 7,
+    name: 'Kink Downside 20.75"',
+    brand: 'KINK',
+    price: 26000,
+    image: 'https://bmxdirect.asia/wp-content/uploads/2026/04/bikes_27_downside_k450_deeppurple1-550x384.jpg',
+    category: 'complete',
+    size: '20.75"',
+    stock: true,
+  },
+  {
+    id: 8,
+    name: 'Kink Switch 20.75"',
+    brand: 'KINK',
+    price: 22000,
+    image: 'https://bmxdirect.asia/wp-content/uploads/2026/04/bikes_27_switch_k460_compositegrey1-550x384.jpg',
+    category: 'complete',
+    size: '20.75"',
+    stock: true,
+  },
+  {
+    id: 9,
+    name: 'Kink Williams 20.75" Pro',
     brand: 'KINK',
     price: 30000,
     image: 'https://bmxdirect.asia/wp-content/uploads/2026/04/bikes_27_williams_k490_mightnightblack1-550x384.jpg',
@@ -55,13 +95,23 @@ const products = [
     pro: true,
   },
   {
-    id: 6,
+    id: 10,
     name: 'WeThePeople CRS 20.25"',
     brand: 'WETHEPEOPLE',
     price: 12500,
     image: 'https://bmxdirect.asia/wp-content/uploads/2025/07/crs-prp-550x384.jpg',
     category: 'complete',
     size: '20.25"',
+    stock: true,
+  },
+  {
+    id: 11,
+    name: 'WeThePeople Battleship 20.75"',
+    brand: 'WETHEPEOPLE',
+    price: 22000,
+    image: 'https://bmxdirect.asia/wp-content/uploads/2025/02/66bb710d5eca2829fa77cfe6_WETHEPEOPLE_Battleship_Magnum_Frame_galactic-purple_4055822542777-1_webres-550x384.jpg',
+    category: 'complete',
+    size: '20.75"',
     stock: true,
   },
 ];
@@ -71,6 +121,19 @@ const safetyGear = [
   { id: 2, name: 'Knee Pads', price: 500, emoji: '🦵' },
   { id: 3, name: 'Elbow Pads', price: 500, emoji: '💪' },
   { id: 4, name: 'Gloves', price: 300, emoji: '🧤' },
+];
+
+const frames = [
+  { id: 1, name: 'Kink Crosscut Frame 20.75"', price: 8500, emoji: '🚲' },
+  { id: 2, name: 'WeThePeople Battleship Frame', price: 12000, emoji: '🚲' },
+  { id: 3, name: 'WeThePeople Envy XLT Frame', price: 9500, emoji: '🚲' },
+];
+
+const accessories = [
+  { id: 1, name: 'Kink Williams Bars 9.25"', price: 2500, emoji: '⬛' },
+  { id: 2, name: 'Kink Helm Bars 9.5"', price: 2800, emoji: '⬛' },
+  { id: 3, name: 'Eclat Seismic Front Hub', price: 3200, emoji: '⚙️' },
+  { id: 4, name: 'Eclat Slash Pedals', price: 1800, emoji: '⚙️' },
 ];
 
 export default function ShopPage() {
@@ -106,7 +169,7 @@ export default function ShopPage() {
             <span>🚲</span> Complete Bikes
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
+            {completeBikes.map((product) => (
               <div key={product.id} className="bg-gradient-to-br from-white/5 to-white/2 rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all group">
                 <div className="relative aspect-square bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-4">
                   <img src={product.image} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform" />
@@ -157,6 +220,48 @@ export default function ShopPage() {
         </div>
       </section>
 
+      {/* Frames */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
+            <span>🚲</span> Frames (กรอบจักรยาน)
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {frames.map((frame) => (
+              <div key={frame.id} className="bg-gradient-to-br from-white/5 to-white/2 rounded-2xl p-6 text-center border border-white/10 hover:border-primary/50 transition-all">
+                <div className="text-5xl mb-4">{frame.emoji}</div>
+                <h3 className="font-bold mb-1">{frame.name}</h3>
+                <p className="text-primary font-bold text-lg">฿{frame.price.toLocaleString()}</p>
+                <button className="mt-4 w-full bg-white/10 hover:bg-primary text-white text-sm font-bold py-2 px-4 rounded-full transition-all">
+                  สนใจ
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Accessories */}
+      <section className="py-16 px-4 bg-darkblue">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
+            <span>⚙️</span> Parts & Accessories (อะไหล่)
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {accessories.map((acc) => (
+              <div key={acc.id} className="bg-gradient-to-br from-white/5 to-white/2 rounded-2xl p-6 text-center border border-white/10 hover:border-secondary/50 transition-all">
+                <div className="text-5xl mb-4">{acc.emoji}</div>
+                <h3 className="font-bold mb-1">{acc.name}</h3>
+                <p className="text-primary font-bold text-lg">฿{acc.price.toLocaleString()}</p>
+                <button className="mt-4 w-full bg-white/10 hover:bg-secondary text-white text-sm font-bold py-2 px-4 rounded-full transition-all">
+                  สนใจ
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Payment Info */}
       <section className="py-16 px-4 bg-dark">
         <div className="max-w-7xl mx-auto">
@@ -184,6 +289,12 @@ export default function ShopPage() {
       {/* Footer */}
       <footer className="py-12 px-4 bg-darkblue border-t border-white/10">
         <div className="max-w-7xl mx-auto text-center">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+              <span className="text-xl">🏍️</span>
+            </div>
+            <span className="text-lg font-bold">THE MASTER <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">BMX</span></span>
+          </div>
           <p className="text-gray-500 text-sm">© 2026 The Master BMX. สงวนลิขสิทธิ์.</p>
         </div>
       </footer>
