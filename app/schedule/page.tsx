@@ -7,6 +7,7 @@ const scheduleData = {
     rush: {
       name: 'สเกตปาร์ครัชดาภิเษก',
       address: 'ซอยลาดพร้าว 71 แขวงลาดพร้าว เขตลาดพร้าว กรุงเทพฯ',
+      mapUrl: 'https://maps.app.goo.gl/KvRJ8ZBi3s3DuW9X8',
       sessions: [
         { day: 'จันทร์', time: '16:00 - 17:30', program: 'Little Rider', spots: 8 },
         { day: 'อังคาร', time: '16:00 - 17:30', program: 'Junior Rider', spots: 10 },
@@ -18,6 +19,7 @@ const scheduleData = {
     bang: {
       name: 'สเกตปาร์คบางแค',
       address: 'ถนนบางแค แขวงบางแค เขตบางแค กรุงเทพฯ',
+      mapUrl: 'https://maps.app.goo.gl/Xq8vX9Y7Z3bvwX7A9',
       sessions: [
         { day: 'เสาร์', time: '09:00 - 10:30', program: 'Little Rider', spots: 8 },
         { day: 'เสาร์', time: '11:00 - 12:30', program: 'Junior Rider', spots: 10 },
@@ -29,6 +31,7 @@ const scheduleData = {
     pattaya: {
       name: 'สเกตปาร์คพัทยา',
       address: 'พัทยา จ.ชลบุรี',
+      mapUrl: 'https://maps.app.goo.gl/W4Z9vA4B6Y9mXwP2',
       sessions: [
         { day: 'ทุกวัน', time: '09:00 - 12:00', program: 'Camp', spots: 15 },
       ],
@@ -38,6 +41,7 @@ const scheduleData = {
     rush: {
       name: 'Ratchada Skate Park',
       address: 'Soi Ladprao 71, Lat Phrao, Bangkok',
+      mapUrl: 'https://maps.app.goo.gl/KvRJ8ZBi3s3DuW9X8',
       sessions: [
         { day: 'Monday', time: '16:00 - 17:30', program: 'Little Rider', spots: 8 },
         { day: 'Tuesday', time: '16:00 - 17:30', program: 'Junior Rider', spots: 10 },
@@ -49,6 +53,7 @@ const scheduleData = {
     bang: {
       name: 'Bang Khae Skate Park',
       address: 'Bang Khae, Bangkok',
+      mapUrl: 'https://maps.app.goo.gl/Xq8vX9Y7Z3bvwX7A9',
       sessions: [
         { day: 'Saturday', time: '09:00 - 10:30', program: 'Little Rider', spots: 8 },
         { day: 'Saturday', time: '11:00 - 12:30', program: 'Junior Rider', spots: 10 },
@@ -60,6 +65,7 @@ const scheduleData = {
     pattaya: {
       name: 'Pattaya Skate Park',
       address: 'Pattaya, Chonburi',
+      mapUrl: 'https://maps.app.goo.gl/W4Z9vA4B6Y9mXwP2',
       sessions: [
         { day: 'Daily', time: '09:00 - 12:00', program: 'Camp', spots: 15 },
       ],
@@ -100,8 +106,15 @@ export default function SchedulePage() {
           {/* Ratchada */}
           <div>
             <div className="mb-6">
-              <h2 className="text-2xl font-black uppercase tracking-tight">{data.rush.name}</h2>
-              <p className="text-gray-500 text-sm">{data.rush.address}</p>
+              <div className="flex items-start justify-between">
+                <div>
+                  <h2 className="text-2xl font-black uppercase tracking-tight">{data.rush.name}</h2>
+                  <p className="text-gray-500 text-sm">{data.rush.address}</p>
+                </div>
+                <a href={data.rush.mapUrl} target="_blank" rel="noopener noreferrer" className="bg-white text-black px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-gray-200 transition-colors">
+                  {lang === 'th' ? 'ดูแผนที่' : 'View Map'}
+                </a>
+              </div>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
@@ -146,8 +159,15 @@ export default function SchedulePage() {
           {/* Bang Khae */}
           <div>
             <div className="mb-6">
-              <h2 className="text-2xl font-black uppercase tracking-tight">{data.bang.name}</h2>
-              <p className="text-gray-500 text-sm">{data.bang.address}</p>
+              <div className="flex items-start justify-between">
+                <div>
+                  <h2 className="text-2xl font-black uppercase tracking-tight">{data.bang.name}</h2>
+                  <p className="text-gray-500 text-sm">{data.bang.address}</p>
+                </div>
+                <a href={data.bang.mapUrl} target="_blank" rel="noopener noreferrer" className="bg-white text-black px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-gray-200 transition-colors">
+                  {lang === 'th' ? 'ดูแผนที่' : 'View Map'}
+                </a>
+              </div>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
@@ -192,8 +212,15 @@ export default function SchedulePage() {
           {/* Pattaya */}
           <div>
             <div className="mb-6">
-              <h2 className="text-2xl font-black uppercase tracking-tight">{data.pattaya.name}</h2>
-              <p className="text-gray-500 text-sm">{data.pattaya.address}</p>
+              <div className="flex items-start justify-between">
+                <div>
+                  <h2 className="text-2xl font-black uppercase tracking-tight">{data.pattaya.name}</h2>
+                  <p className="text-gray-500 text-sm">{data.pattaya.address}</p>
+                </div>
+                <a href={data.pattaya.mapUrl} target="_blank" rel="noopener noreferrer" className="bg-white text-black px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-gray-200 transition-colors">
+                  {lang === 'th' ? 'ดูแผนที่' : 'View Map'}
+                </a>
+              </div>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
