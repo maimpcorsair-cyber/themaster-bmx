@@ -45,21 +45,6 @@ const locations = [
 export default function ProgramsPage() {
   return (
     <div className="min-h-screen bg-dark">
-      {/* Header */}
-      <header className="bg-darkblue/95 backdrop-blur border-b border-white/10 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-              <span className="text-xl">🏍️</span>
-            </div>
-            <span className="text-lg font-bold">THE MASTER <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">BMX</span></span>
-          </Link>
-          <Link href="/" className="text-gray-400 hover:text-white transition-colors">
-            ← กลับหน้าแรก
-          </Link>
-        </div>
-      </header>
-
       {/* Hero */}
       <section className="py-16 px-4 bg-gradient-to-b from-darkblue to-dark">
         <div className="max-w-7xl mx-auto text-center">
@@ -98,9 +83,9 @@ export default function ProgramsPage() {
                 </ul>
                 <div className="text-center">
                   <p className="text-3xl font-black mb-2">฿{program.price.toLocaleString()}<span className="text-sm font-normal text-gray-400">/เดือน</span></p>
-                  <button className={`w-full font-bold py-3 px-6 rounded-full transition-all ${program.featured ? 'bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white' : 'bg-white/10 hover:bg-white/20 text-white'}`}>
+                  <Link href="/programs#contact" className={`w-full font-bold py-3 px-6 rounded-full transition-all ${program.featured ? 'bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white' : 'bg-white/10 hover:bg-white/20 text-white'}`}>
                     สมัครเรียน
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -126,7 +111,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* Contact */}
-      <section className="py-16 px-4 bg-dark">
+      <section id="contact" className="py-16 px-4 bg-dark">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-4">📞 สนใจสมัครเรียน?</h2>
           <p className="text-gray-400 mb-6">ติดต่อเราได้เลย รับทดลองเรียนฟรี 1 ครั้ง!</p>
@@ -140,13 +125,6 @@ export default function ProgramsPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-12 px-4 bg-darkblue border-t border-white/10">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-gray-500 text-sm">© 2026 The Master BMX. สงวนลิขสิทธิ์.</p>
-        </div>
-      </footer>
     </div>
   );
 }
