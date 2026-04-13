@@ -1,103 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-
-const content = {
-  th: {
-    hero: {
-      badge: 'เปิดรับสมัครแล้ว',
-      title: 'ปั่น BMX ยังไงให้เยี่ยมผู้ชาย',
-      cta: 'ลงทะเบียนเรียน',
-      cta2: 'RUSTFEST',
-    },
-    programs: {
-      title: 'คอร์สเรียน',
-      subtitle: 'เลือกสายที่เหมาะกับลูกคุณ',
-      little: { age: '4-6 ปี', name: 'Little Rider', desc: 'เริ่มต้นเรียนรู้การทรงตัว + ความสนุก' },
-      junior: { age: '7-12 ปี', name: 'Junior Rider', desc: 'พัฒนาทักษะ + เทคนิคต่างๆ' },
-      competitor: { age: '13+ ปี', name: 'Competitor', desc: 'ฝึกแข่งขันระดับทีมชาติ' },
-      detail: 'ดูรายละเอียด',
-    },
-    locations: {
-      title: 'สถานที่สอน',
-      rush: { name: 'สเกตปาร์ครัชดาภิเษก', city: 'กรุงเทพฯ', days: 'จันทร์ - ศุกร์' },
-      bang: { name: 'สเกตปาร์คบางแค', city: 'กรุงเทพฯ', days: 'เสาร์ - อาทิตย์' },
-      pattaya: { name: 'สเกตปาร์คพัทยา', city: 'ชลบุรี', days: 'Camp รายเดือน' },
-    },
-    cta: {
-      title: 'พร้อมเริ่มต้นแล้วหรือยัง?',
-      subtitle: 'รับทดลองเรียนฟรี 1 ครั้ง',
-      call: 'โทร 081-234-5678',
-      line: 'แอดไลน์ @themasterbmx',
-    },
-    footer: {
-      rights: '© 2026 The Master BMX.',
-    },
-  },
-  en: {
-    hero: {
-      badge: 'Now Enrolling',
-      title: 'Just Ride BMX',
-      cta: 'Register Now',
-      cta2: 'RUSTFEST',
-    },
-    programs: {
-      title: 'Programs',
-      subtitle: 'Choose the right path for your child',
-      little: { age: '4-6 years', name: 'Little Rider', desc: 'Start learning balance + fun' },
-      junior: { age: '7-12 years', name: 'Junior Rider', desc: 'Develop skills + techniques' },
-      competitor: { age: '13+ years', name: 'Competitor', desc: 'Train for national competition' },
-      detail: 'View Details',
-    },
-    locations: {
-      title: 'Training Locations',
-      rush: { name: 'Ratchada Skate Park', city: 'Bangkok', days: 'Mon - Fri' },
-      bang: { name: 'Bang Khae Skate Park', city: 'Bangkok', days: 'Sat - Sun' },
-      pattaya: { name: 'Pattaya Skate Park', city: 'Chonburi', days: 'Monthly Camp' },
-    },
-    cta: {
-      title: 'Ready to Start?',
-      subtitle: 'Free trial class 1 session',
-      call: 'Call 081-234-5678',
-      line: 'Line @themasterbmx',
-    },
-    footer: {
-      rights: '© 2026 The Master BMX.',
-    },
-  },
-};
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function HomePage() {
-  const [lang, setLang] = useState<'th' | 'en'>('th');
-  const t = content[lang];
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-xl font-black tracking-tighter uppercase">
-            THE MASTER <span className="text-red-600">BMX</span>
-          </Link>
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/programs" className="text-sm font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.programs.title}</Link>
-            <Link href="/rustfest" className="text-sm font-medium hover:text-red-500 transition-colors uppercase tracking-wide">RUSTFEST</Link>
-            <Link href="/shop" className="text-sm font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{lang === 'th' ? 'ร้านค้า' : 'Shop'}</Link>
-            <Link href="/programs#contact" className="bg-white text-black px-5 py-2 text-sm font-bold hover:bg-red-600 hover:text-white transition-colors uppercase tracking-wide">
-              {lang === 'th' ? 'ติดต่อ' : 'Contact'}
-            </Link>
-          </nav>
-          {/* Language Toggle */}
-          <button 
-            onClick={() => setLang(lang === 'th' ? 'en' : 'th')}
-            className="border border-gray-600 px-3 py-1 text-xs font-bold uppercase tracking-wider hover:border-white transition-colors"
-          >
-            {lang === 'th' ? 'EN' : 'TH'}
-          </button>
-        </div>
-      </header>
-
       {/* Hero */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <video 
@@ -123,6 +33,10 @@ export default function HomePage() {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-none mb-6">
             {t.hero.title}
           </h1>
+          
+          <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-xl mx-auto">
+            {t.hero.subtitle}
+          </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/programs" className="bg-white text-black font-bold py-4 px-10 hover:bg-red-600 hover:text-white transition-all text-sm uppercase tracking-widest">
@@ -218,13 +132,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-8 px-6 bg-black border-t border-gray-800">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-gray-500 text-sm uppercase tracking-wide">{t.footer.rights}</p>
-        </div>
-      </footer>
     </div>
   );
 }

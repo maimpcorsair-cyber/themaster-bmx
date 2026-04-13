@@ -1,26 +1,32 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Navbar() {
+  const { lang, setLang, t } = useLanguage();
+
   return (
-    <header className="bg-darkblue/95 backdrop-blur border-b border-white/10 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo.jpg" alt="THE MASTER BMX" width={50} height={50} className="rounded-lg" />
-          <span className="text-lg font-bold">THE MASTER <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">BMX</span></span>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gray-800">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <Link href="/" className="text-xl font-black tracking-tighter uppercase">
+          THE MASTER <span className="text-red-600">BMX</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
-          <Link href="/" className="text-gray-400 hover:text-white transition-colors">หน้าแรก</Link>
-          <Link href="/programs" className="text-gray-400 hover:text-white transition-colors">คอร์สเรียน</Link>
-          <Link href="/rustfest" className="text-gray-400 hover:text-white transition-colors">RUSTFEST</Link>
-          <Link href="/shop" className="text-gray-400 hover:text-white transition-colors">ร้านค้า</Link>
-          <Link href="/programs#contact" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-bold py-2 px-4 rounded-full transition-all">ติดต่อ</Link>
+        <nav className="hidden md:flex items-center gap-8">
+          <Link href="/" className="text-sm font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.nav.home}</Link>
+          <Link href="/programs" className="text-sm font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.nav.programs}</Link>
+          <Link href="/rustfest" className="text-sm font-medium hover:text-red-500 transition-colors uppercase tracking-wide">RUSTFEST</Link>
+          <Link href="/shop" className="text-sm font-medium hover:text-red-500 transition-colors uppercase tracking-wide">{t.nav.shop}</Link>
+          <Link href="/programs#contact" className="bg-white text-black px-5 py-2 text-sm font-bold hover:bg-red-600 hover:text-white transition-colors uppercase tracking-wide">
+            {t.nav.contact}
+          </Link>
         </nav>
-        <Link href="/shop" className="md:hidden bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 px-4 rounded-full">
-          ร้านค้า
-        </Link>
+        <button 
+          onClick={() => setLang(lang === 'th' ? 'en' : 'th')}
+          className="border border-gray-600 px-3 py-1 text-xs font-bold uppercase tracking-wider hover:border-white transition-colors"
+        >
+          {lang === 'th' ? 'EN' : 'TH'}
+        </button>
       </div>
     </header>
   );
