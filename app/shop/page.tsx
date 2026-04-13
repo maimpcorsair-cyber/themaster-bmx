@@ -330,6 +330,10 @@ export default function ShopPage() {
                 <input type="tel" className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none" placeholder="081-234-5678" />
               </div>
               <div>
+                <label className="block text-sm font-bold uppercase mb-2">LINE ID (ถ้ามี)</label>
+                <input type="text" className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none" placeholder="เช่น @themasterbmx" />
+              </div>
+              <div>
                 <label className="block text-sm font-bold uppercase mb-2">Address / ที่อยู่</label>
                 <textarea className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none h-24" placeholder="ที่อยู่จัดส่ง" />
               </div>
@@ -338,7 +342,11 @@ export default function ShopPage() {
                 <p className="text-sm font-bold uppercase mb-3">Payment Method / วิธีชำระเงิน</p>
                 <div className="space-y-2">
                   <label className="flex items-center gap-3 bg-gray-900 p-3 border border-gray-800 cursor-pointer hover:border-white transition-colors">
-                    <input type="radio" name="payment" value="promptpay" className="w-4 h-4" defaultChecked />
+                    <input type="radio" name="payment" value="linepay" className="w-4 h-4" defaultChecked />
+                    <span className="font-bold">LINE Pay</span>
+                  </label>
+                  <label className="flex items-center gap-3 bg-gray-900 p-3 border border-gray-800 cursor-pointer hover:border-white transition-colors">
+                    <input type="radio" name="payment" value="promptpay" className="w-4 h-4" />
                     <span className="font-bold">PromptPay / พร้อมเพย์</span>
                   </label>
                   <label className="flex items-center gap-3 bg-gray-900 p-3 border border-gray-800 cursor-pointer hover:border-white transition-colors">
@@ -357,12 +365,15 @@ export default function ShopPage() {
                   <span>TOTAL</span>
                   <span>฿{cartTotal.toLocaleString()}</span>
                 </div>
-                <button 
-                  type="button"
-                  className="w-full bg-red-600 text-white font-bold py-4 hover:bg-red-700 transition-colors uppercase tracking-widest"
+                <a 
+                  href="https://line.me/R/ti/p/%40972nkywq" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full bg-green-600 text-white font-bold py-4 hover:bg-green-700 transition-colors uppercase tracking-widest text-center"
                 >
-                  PLACE ORDER / ยืนยันสั่งซื้อ
-                </button>
+                  ADD LINE TO CONFIRM ORDER
+                </a>
+                <p className="text-center text-gray-500 text-xs mt-2">กดปุ่มเพื่อติดต่อ LINE ร้านสั่งซื้อ</p>
               </div>
             </form>
           </div>

@@ -126,7 +126,7 @@ export default function HomePage() {
             <a href="tel:081-234-5678" className="bg-red-600 text-white font-bold py-4 px-10 hover:bg-white hover:text-black transition-all text-sm uppercase tracking-widest">
               {t.cta.call}
             </a>
-            <a href="https://line.me" target="_blank" className="border-2 border-white text-white font-bold py-4 px-10 hover:bg-white hover:text-black transition-all text-sm uppercase tracking-widest">
+            <a href="https://line.me/R/ti/p/%40972nkywq" target="_blank" rel="noopener noreferrer" className="border-2 border-white text-white font-bold py-4 px-10 hover:bg-white hover:text-black transition-all text-sm uppercase tracking-widest">
               {t.cta.line}
             </a>
           </div>
