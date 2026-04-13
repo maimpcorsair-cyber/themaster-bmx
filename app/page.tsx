@@ -14,7 +14,9 @@ export default function HomePage() {
           loop 
           muted 
           playsInline
-          poster="/hero-poster.jpg"
+          controls={false}
+          disablePictureInPicture
+          disableRemotePlayback
         >
           <source src="/hero.mp4" type="video/mp4" />
         </video>
