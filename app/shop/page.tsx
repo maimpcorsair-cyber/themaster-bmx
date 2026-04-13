@@ -2,8 +2,10 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+// === PRODUCTS DATA ===
 const completeBikes = [
   { id: 1, name: 'Kink Carve 16"', brand: 'KINK', price: 7499, image: '/bikes_kink_carve_16.jpg', size: '16"', age: '5-7 ปี', rating: 5.0, reviews: 12 },
   { id: 2, name: 'Kink Kicker 18"', brand: 'KINK', price: 8999, image: '/bikes_kink_kicker_18.jpg', size: '18"', age: '7-10 ปี', rating: 5.0, reviews: 8 },
@@ -19,10 +21,40 @@ const completeBikes = [
 ];
 
 const safetyGear = [
-  { id: 1, name: 'Helmet Full Face', price: 1500, emoji: '🪖', rating: 5.0, reviews: 32 },
-  { id: 2, name: 'Knee Pads', price: 500, emoji: '🦵', rating: 4.9, reviews: 18 },
-  { id: 3, name: 'Elbow Pads', price: 500, emoji: '💪', rating: 4.8, reviews: 12 },
-  { id: 4, name: 'Gloves', price: 300, emoji: '🧤', rating: 4.9, reviews: 24 },
+  // Helmets
+  { id: 101, name: 'Pro-Tec Street Helmet', brand: 'PRO-TEC', price: 2500, image: '/gear_helmet_protec.jpg', category: 'helmets', rating: 4.9, reviews: 32 },
+  { id: 102, name: 'Pro-Tec Bass Boat Helmet', brand: 'PRO-TEC', price: 2800, image: '/gear_helmet_bass.jpg', category: 'helmets', rating: 5.0, reviews: 18 },
+  { id: 103, name: 'Pro-Tec Sport Helmet', brand: 'PRO-TEC', price: 2200, image: '/gear_helmet_sport.jpg', category: 'helmets', rating: 4.8, reviews: 24 },
+  { id: 104, name: 'Triple 8 Certified Helmet', brand: 'TRIPLE 8', price: 3200, image: '/gear_helmet_t8.jpg', category: 'helmets', rating: 4.9, reviews: 15 },
+  // Gloves
+  { id: 105, name: 'Pro-Tec反转Gloves', brand: 'PRO-TEC', price: 450, image: '/gear_gloves_protec.jpg', category: 'gloves', rating: 4.7, reviews: 45 },
+  { id: 106, name: 'Fuse Str手腕Glove', brand: 'FUSE', price: 550, image: '/gear_gloves_fuse.jpg', category: 'gloves', rating: 4.8, reviews: 28 },
+  { id: 107, name: 'BDC Gloves', brand: 'BDC', price: 380, image: '/gear_gloves_bdc.jpg', category: 'gloves', rating: 4.6, reviews: 52 },
+  // Knee Pads
+  { id: 108, name: 'Fuse Echo 100 Knee/Shin Pad', brand: 'FUSE', price: 1800, image: '/gear_knee_fuse_echo.jpg', category: 'knee-pads', rating: 5.0, reviews: 22, badge: 'BEST' },
+  { id: 109, name: 'Fuse Delta 125 Knee/Shin/Ankle', brand: 'FUSE', price: 2200, image: '/gear_knee_fuse_delta.jpg', category: 'knee-pads', rating: 4.9, reviews: 14 },
+  { id: 110, name: 'Shadow Super Slim V2 Knee Pads', brand: 'SHADOW', price: 1500, image: '/gear_knee_shadow.jpg', category: 'knee-pads', rating: 4.8, reviews: 19 },
+  { id: 111, name: 'Stay Strong Combat Knee/Shin', brand: 'STAY STRONG', price: 1950, image: '/gear_knee_staystrong.jpg', category: 'knee-pads', rating: 4.9, reviews: 8 },
+  // Elbow Pads
+  { id: 112, name: 'Pro-Tec反转Elbow Pad', brand: 'PRO-TEC', price: 800, image: '/gear_elbow_protec.jpg', category: 'elbow-pads', rating: 4.7, reviews: 33 },
+  { id: 113, name: 'Fuse Lomi Elbow Pads', brand: 'FUSE', price: 950, image: '/gear_elbow_fuse.jpg', category: 'elbow-pads', rating: 4.8, reviews: 21 },
+  // Shin Guards
+  { id: 114, name: 'Stay Strong Shin Guards', brand: 'STAY STRONG', price: 1200, image: '/gear_shin_staystrong.jpg', category: 'shin-guards', rating: 4.9, reviews: 12 },
+  // Body Armor
+  { id: 115, name: 'Pro-Tec反转Body Armor', brand: 'PRO-TEC', price: 3500, image: '/gear_body_protec.jpg', category: 'body-armor', rating: 5.0, reviews: 9 },
+  // Neck Brace
+  { id: 116, name: 'Leatt反转Neck Brace', brand: 'LEATT', price: 5500, image: '/gear_neck_leatt.jpg', category: 'neck-brace', rating: 5.0, reviews: 6 },
+];
+
+const categories = [
+  { key: 'all', labelTh: 'ทั้งหมด', labelEn: 'All' },
+  { key: 'helmets', labelTh: 'หมวก', labelEn: 'Helmets' },
+  { key: 'gloves', labelTh: 'ถุงมือ', labelEn: 'Gloves' },
+  { key: 'knee-pads', labelTh: 'เสื่อรองเข่า', labelEn: 'Knee Pads' },
+  { key: 'elbow-pads', labelTh: 'เสื่อรองข้อศอก', labelEn: 'Elbow Pads' },
+  { key: 'shin-guards', labelTh: 'เสื่อรองน่อง', labelEn: 'Shin Guards' },
+  { key: 'body-armor', labelTh: 'เกราะป้องกัน', labelEn: 'Body Armor' },
+  { key: 'neck-brace', labelTh: 'ปกคอ', labelEn: 'Neck Brace' },
 ];
 
 function StarRating({ rating }: { rating: number }) {
@@ -36,15 +68,59 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function ShopPage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const [cart, setCart] = useState<{ [key: number]: number }>({});
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [showCart, setShowCart] = useState(false);
+  const [showCheckout, setShowCheckout] = useState(false);
+
+  const addToCart = (id: number) => {
+    setCart(prev => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+  };
+
+  const updateQty = (id: number, qty: number) => {
+    if (qty <= 0) {
+      setCart(prev => {
+        const newCart = { ...prev };
+        delete newCart[id];
+        return newCart;
+      });
+    } else {
+      setCart(prev => ({ ...prev, [id]: qty }));
+    }
+  };
+
+  const cartTotal = Object.entries(cart).reduce((sum, [id, qty]) => {
+    const product = [...completeBikes, ...safetyGear].find(p => p.id === Number(id));
+    return sum + (product ? product.price * qty : 0);
+  }, 0);
+
+  const cartCount = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+
+  const filteredGear = selectedCategory === 'all' 
+    ? safetyGear 
+    : safetyGear.filter(g => g.category === selectedCategory);
+
+  const getCategoryLabel = (cat: typeof categories[0]) => lang === 'th' ? cat.labelTh : cat.labelEn;
 
   return (
     <div className="min-h-screen bg-black text-white pt-20">
       {/* Hero */}
       <section className="py-16 px-6 bg-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-2">{t.shop.title}</h1>
-          <p className="text-gray-500 text-lg">{t.shop.subtitle}</p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-2">{t.shop.title}</h1>
+              <p className="text-gray-500 text-lg">{t.shop.subtitle}</p>
+            </div>
+            {/* Cart Button */}
+            <button 
+              onClick={() => setShowCart(true)}
+              className="relative bg-white text-black font-bold py-3 px-6 hover:bg-gray-200 transition-colors"
+            >
+              CART ({cartCount})
+            </button>
+          </div>
         </div>
       </section>
 
@@ -82,7 +158,10 @@ export default function ShopPage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <p className="font-bold text-lg">฿{product.price.toLocaleString()}</p>
-                    <button className="bg-white text-black text-xs font-bold py-2 px-4 hover:bg-gray-200 transition-colors">
+                    <button 
+                      onClick={() => addToCart(product.id)}
+                      className="bg-white text-black text-xs font-bold py-2 px-4 hover:bg-gray-200 transition-colors"
+                    >
                       {t.shop.addCart}
                     </button>
                   </div>
@@ -93,26 +172,62 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* Safety Gear */}
+      {/* Safety Gear - Filter by Category */}
       <section className="py-12 px-6 bg-gray-950">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-8 border-b border-gray-800 pb-4">
             <h2 className="text-xl font-bold uppercase tracking-tight">{t.shop.safety} ({safetyGear.length})</h2>
           </div>
           
-          <div className="grid md:grid-cols-4 gap-6">
-            {safetyGear.map((gear) => (
-              <div key={gear.id} className="bg-black border border-gray-800 hover:border-white transition-all p-4 text-center">
-                <div className="text-4xl mb-4">{gear.emoji}</div>
-                <h3 className="font-bold text-sm mb-1">{gear.name}</h3>
-                <div className="flex items-center justify-center gap-2 mb-3">
-                  <StarRating rating={gear.rating} />
-                  <span className="text-gray-500 text-xs">({gear.reviews})</span>
+          {/* Category Filter */}
+          <div className="flex flex-wrap gap-2 mb-8">
+            {categories.map((cat) => (
+              <button
+                key={cat.key}
+                onClick={() => setSelectedCategory(cat.key)}
+                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors ${
+                  selectedCategory === cat.key 
+                    ? 'bg-white text-black' 
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                }`}
+              >
+                {getCategoryLabel(cat)}
+              </button>
+            ))}
+          </div>
+          
+          <div className="grid md:grid-cols-4 lg:grid-cols-5 gap-6">
+            {filteredGear.map((gear) => (
+              <div key={gear.id} className="bg-black border border-gray-800 hover:border-white transition-all">
+                <div className="relative aspect-square bg-gray-900 p-4">
+                  {/* Placeholder */}
+                  <div className="w-full h-full flex items-center justify-center text-gray-700">
+                    <span className="text-4xl font-black uppercase">{gear.brand.charAt(0)}</span>
+                  </div>
+                  {gear.badge && (
+                    <span className="absolute top-3 left-3 bg-white text-black text-xs font-bold px-2 py-1">
+                      {gear.badge}
+                    </span>
+                  )}
+                  <span className="absolute top-3 right-3 text-green-600 text-xs font-medium">{t.shop.inStock}</span>
                 </div>
-                <p className="font-bold text-lg mb-3">฿{gear.price.toLocaleString()}</p>
-                <button className="w-full bg-white text-black text-xs font-bold py-2 px-4 hover:bg-gray-200 transition-colors">
-                  {t.shop.addCart}
-                </button>
+                <div className="p-4 border-t border-gray-800">
+                  <p className="text-gray-500 text-xs font-medium uppercase tracking-wider mb-1">{gear.brand}</p>
+                  <h3 className="font-bold text-sm mb-2">{gear.name}</h3>
+                  <div className="flex items-center gap-2 mb-3">
+                    <StarRating rating={gear.rating} />
+                    <span className="text-gray-500 text-xs">({gear.reviews})</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <p className="font-bold text-lg">฿{gear.price.toLocaleString()}</p>
+                    <button 
+                      onClick={() => addToCart(gear.id)}
+                      className="bg-white text-black text-xs font-bold py-2 px-4 hover:bg-gray-200 transition-colors"
+                    >
+                      {t.shop.addCart}
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -130,6 +245,129 @@ export default function ShopPage() {
           </div>
         </div>
       </section>
+
+      {/* Cart Slide-out */}
+      {showCart && (
+        <div className="fixed inset-0 z-50 flex justify-end">
+          <div className="absolute inset-0 bg-black/80" onClick={() => setShowCart(false)} />
+          <div className="relative w-full max-w-md bg-black border-l border-gray-800 h-full overflow-y-auto">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xl font-black uppercase">YOUR CART ({cartCount})</h2>
+                <button onClick={() => setShowCart(false)} className="text-gray-500 hover:text-white text-2xl">&times;</button>
+              </div>
+              
+              {cartCount === 0 ? (
+                <p className="text-gray-500 text-center py-12">Your cart is empty</p>
+              ) : (
+                <>
+                  <div className="space-y-4 mb-6">
+                    {Object.entries(cart).map(([id, qty]) => {
+                      const product = [...completeBikes, ...safetyGear].find(p => p.id === Number(id));
+                      if (!product) return null;
+                      return (
+                        <div key={id} className="flex gap-4 bg-gray-900 p-4">
+                          <div className="w-20 h-20 bg-gray-800 flex items-center justify-center">
+                            <span className="text-xs font-bold text-gray-600">{product.brand.charAt(0)}</span>
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="font-bold text-sm">{product.name}</h3>
+                            <p className="text-gray-500 text-sm">฿{product.price.toLocaleString()}</p>
+                            <div className="flex items-center gap-2 mt-2">
+                              <button 
+                                onClick={() => updateQty(Number(id), qty - 1)}
+                                className="w-8 h-8 bg-gray-800 text-white font-bold"
+                              >-</button>
+                              <span className="w-8 text-center">{qty}</span>
+                              <button 
+                                onClick={() => updateQty(Number(id), qty + 1)}
+                                className="w-8 h-8 bg-gray-800 text-white font-bold"
+                              >+</button>
+                            </div>
+                          </div>
+                          <p className="font-bold">฿{(product.price * qty).toLocaleString()}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  
+                  <div className="border-t border-gray-800 pt-4 mb-6">
+                    <div className="flex justify-between text-lg font-bold">
+                      <span>TOTAL</span>
+                      <span>฿{cartTotal.toLocaleString()}</span>
+                    </div>
+                  </div>
+                  
+                  <button 
+                    onClick={() => { setShowCart(false); setShowCheckout(true); }}
+                    className="w-full bg-white text-black font-bold py-4 hover:bg-gray-200 transition-colors uppercase tracking-widest"
+                  >
+                    CHECKOUT
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Checkout Modal */}
+      {showCheckout && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/80" onClick={() => setShowCheckout(false)} />
+          <div className="relative w-full max-w-lg bg-black border border-gray-800 p-8 max-h-[90vh] overflow-y-auto">
+            <button onClick={() => setShowCheckout(false)} className="absolute top-4 right-4 text-gray-500 hover:text-white text-2xl">&times;</button>
+            
+            <h2 className="text-2xl font-black uppercase mb-6">CHECKOUT</h2>
+            
+            <form className="space-y-4">
+              <div>
+                <label className="block text-sm font-bold uppercase mb-2">Name / ชื่อ</label>
+                <input type="text" className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none" placeholder="กรอกชื่อของคุณ" />
+              </div>
+              <div>
+                <label className="block text-sm font-bold uppercase mb-2">Phone / เบอร์โทร</label>
+                <input type="tel" className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none" placeholder="081-234-5678" />
+              </div>
+              <div>
+                <label className="block text-sm font-bold uppercase mb-2">Address / ที่อยู่</label>
+                <textarea className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none h-24" placeholder="ที่อยู่จัดส่ง" />
+              </div>
+              
+              <div className="border-t border-gray-800 pt-4">
+                <p className="text-sm font-bold uppercase mb-3">Payment Method / วิธีชำระเงิน</p>
+                <div className="space-y-2">
+                  <label className="flex items-center gap-3 bg-gray-900 p-3 border border-gray-800 cursor-pointer hover:border-white transition-colors">
+                    <input type="radio" name="payment" value="promptpay" className="w-4 h-4" defaultChecked />
+                    <span className="font-bold">PromptPay / พร้อมเพย์</span>
+                  </label>
+                  <label className="flex items-center gap-3 bg-gray-900 p-3 border border-gray-800 cursor-pointer hover:border-white transition-colors">
+                    <input type="radio" name="payment" value="transfer" className="w-4 h-4" />
+                    <span className="font-bold">โอนเงิน / Bank Transfer</span>
+                  </label>
+                  <label className="flex items-center gap-3 bg-gray-900 p-3 border border-gray-800 cursor-pointer hover:border-white transition-colors">
+                    <input type="radio" name="payment" value="cod" className="w-4 h-4" />
+                    <span className="font-bold">เก็บเงินปลายทาง / COD</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div className="border-t border-gray-800 pt-4">
+                <div className="flex justify-between text-lg font-bold mb-4">
+                  <span>TOTAL</span>
+                  <span>฿{cartTotal.toLocaleString()}</span>
+                </div>
+                <button 
+                  type="button"
+                  className="w-full bg-red-600 text-white font-bold py-4 hover:bg-red-700 transition-colors uppercase tracking-widest"
+                >
+                  PLACE ORDER / ยืนยันสั่งซื้อ
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
