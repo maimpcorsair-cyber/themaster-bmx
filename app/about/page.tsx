@@ -161,8 +161,8 @@ export default function AboutPage() {
               : 'Ready to start your BMX journey with us?'}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:081-234-5678" className="bg-white text-black font-bold py-3 px-6 hover:bg-gray-200 transition-colors">
-              081-234-5678
+            <a href="tel:088-934-5146" className="bg-white text-black font-bold py-3 px-6 hover:bg-gray-200 transition-colors">
+              088-934-5146
             </a>
             <a href="https://line.me/R/ti/p/@rushfest" target="_blank" className="bg-green-600 text-white font-bold py-3 px-6 hover:bg-green-700 transition-colors">
               LINE @rushfest

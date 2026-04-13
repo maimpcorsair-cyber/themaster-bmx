@@ -123,7 +123,7 @@ export default function HomePage() {
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6">{t.cta.title}</h2>
           <p className="text-gray-500 uppercase tracking-wide mb-10">{t.cta.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:081-234-5678" className="bg-red-600 text-white font-bold py-4 px-10 hover:bg-white hover:text-black transition-all text-sm uppercase tracking-widest">
+            <a href="tel:088-934-5146" className="bg-red-600 text-white font-bold py-4 px-10 hover:bg-white hover:text-black transition-all text-sm uppercase tracking-widest">
               {t.cta.call}
             </a>
             <a href="https://line.me/R/ti/p/%40rushfest" target="_blank" rel="noopener noreferrer" className="border-2 border-white text-white font-bold py-4 px-10 hover:bg-white hover:text-black transition-all text-sm uppercase tracking-widest">

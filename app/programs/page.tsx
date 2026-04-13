@@ -154,7 +154,7 @@ export default function ProgramsPage() {
           <h2 className="text-xl font-bold mb-3">{t.cta.title}</h2>
           <p className="text-gray-500 mb-6">{t.cta.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:081-234-5678" className="bg-white text-black font-bold py-3 px-6 hover:bg-gray-200 transition-colors">
+            <a href="tel:088-934-5146" className="bg-white text-black font-bold py-3 px-6 hover:bg-gray-200 transition-colors">
               {t.cta.call}
             </a>
             <a href="https://line.me" target="_blank" className="bg-gray-800 text-white font-bold py-3 px-6 hover:bg-gray-700 transition-colors">

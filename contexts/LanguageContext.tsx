@@ -71,7 +71,7 @@ const translations = {
     cta: {
       title: 'พร้อมเริ่มต้นแล้วหรือยัง?',
       subtitle: 'รับทดลองเรียนฟรี 1 ครั้ง',
-      call: 'โทร 081-234-5678',
+      call: 'โทร 088-934-5146',
       line: 'แอดไลน์ @rushfest',
     },
     footer: {
@@ -168,7 +168,7 @@ const translations = {
     cta: {
       title: 'Ready to Start?',
       subtitle: 'Free trial class 1 session',
-      call: 'Call 081-234-5678',
+      call: 'Call 088-934-5146',
       line: 'Line @rushfest',
     },
     footer: {

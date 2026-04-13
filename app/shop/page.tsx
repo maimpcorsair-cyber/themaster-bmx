@@ -426,7 +426,7 @@ export default function ShopPage() {
               </div>
               <div>
                 <label className="block text-sm font-bold uppercase mb-2">{lang === 'th' ? 'เบอร์โทร' : 'Phone'}</label>
-                <input type="tel" className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none" placeholder="081-234-5678" />
+                <input type="tel" className="w-full bg-gray-900 border border-gray-800 p-3 text-white focus:border-white outline-none" placeholder="088-934-5146" />
               </div>
               <div>
                 <label className="block text-sm font-bold uppercase mb-2">LINE ID</label>
